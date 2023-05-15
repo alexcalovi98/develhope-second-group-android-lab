@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Android Lab</string>
+    <string name="first_fragment_navigation">First Fragment</string>
+    <string name="second_fragment_navigation">Second Fragment</string>
+    <string name="first_fragment">First Fragment</string>
+    <string name="second_fragment">Second Fragment</string>
+    <string name="navigate_to_second_fragment">Navigate to second fragment</string>
+
+    <string name="item_1">This is item one</string>
+    <string name="item_2">This is item two</string>
+    <string name="item_3">This is item third</string>
+</resources>
