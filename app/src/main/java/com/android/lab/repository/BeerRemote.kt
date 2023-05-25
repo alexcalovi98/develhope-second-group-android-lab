@@ -3,10 +3,10 @@ package com.android.lab.repository
 import com.google.gson.annotations.SerializedName
 
 data class BeerRemote(
-    private val id: String,
-    private val name: String,
-    private val tagline: String,
-    @SerializedName("first_brewed") private val firstBrewed: String,
+    val id: String,
+    val name: String,
+    val tagline: String,
+    @SerializedName("first_brewed") val firstBrewed: String,
     //private val description: String,
-    @SerializedName("image_url") private val imageUrl: String
+    @SerializedName("image_url") val imageUrl: String
 )

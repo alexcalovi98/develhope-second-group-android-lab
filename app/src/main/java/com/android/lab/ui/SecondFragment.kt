@@ -1,4 +1,4 @@
-package com.android.lab
+package com.android.lab.ui
 
 import android.os.Bundle
 import android.util.Log
@@ -8,17 +8,17 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.android.lab.R
+import com.android.lab.BeerAdapter
 import com.android.lab.databinding.FragmentSecondBinding
 import com.android.lab.repository.PunkAPI
 import kotlinx.coroutines.launch
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.create
 
 class SecondFragment : Fragment() {
 
     private lateinit var binding: FragmentSecondBinding
+    private lateinit var adapter: BeerAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,16 +31,8 @@ class SecondFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.recyclerView.layoutManager = LinearLayoutManager(context)
-
-        val items = listOf(
-            ItemData(R.drawable.item_1, R.string.item_1),
-            ItemData(R.drawable.item_2, R.string.item_2),
-            ItemData(R.drawable.item_3, R.string.item_3)
-        )
-
-        Log.d(TAG, "Item size: " + items.size)
-
-        binding.recyclerView.adapter = ListAdapter(items)
+        adapter = BeerAdapter()
+        binding.recyclerView.adapter = adapter
 
         //Retrofit test
 
@@ -55,9 +47,12 @@ class SecondFragment : Fragment() {
 
         lifecycleScope.launch {
             val beers = punkAPI.getBeers(1)
-            beers.forEach {
-                Log.d(TAG, "$it")
-            }
+            //beers.forEach {
+            //Log.d(TAG, "$it")
+            //}
+            val items = beers.map { BeerItem(it.name, it.imageUrl) }
+            Log.d(TAG,"$items")
+            adapter.addItems(items)
         }
     }
 
