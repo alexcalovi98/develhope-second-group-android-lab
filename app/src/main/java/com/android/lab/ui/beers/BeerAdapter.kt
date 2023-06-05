@@ -1,11 +1,10 @@
-package com.android.lab
+package com.android.lab.ui.beers
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import coil.api.load
 import com.android.lab.databinding.ItemBinding
-import com.android.lab.ui.BeerItem
 
 class BeerAdapter(private val items: MutableList<BeerItem> = mutableListOf()) : RecyclerView.Adapter<BeerAdapter.ViewHolder>() {
 

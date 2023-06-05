@@ -19,7 +19,7 @@
 
     <fragment
         android:id="@+id/secondFragment"
-        android:name="com.android.lab.ui.SecondFragment"
+        android:name="com.android.lab.ui.beers.BeersFragment"
         android:label="fragment_second"
         tools:layout="@layout/fragment_second">
 
@@ -31,7 +31,7 @@
 
     <fragment
         android:id="@+id/thirdFragment"
-        android:name="com.android.lab.ui.SecondFragment"
+        android:name="com.android.lab.ui.beers.BeersFragment"
         android:label="fragment_third"
         tools:layout="@layout/fragment_second" />
 </navigation>
