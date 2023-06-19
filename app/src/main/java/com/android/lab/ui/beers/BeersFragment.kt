@@ -27,6 +27,7 @@ class BeersFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        //Register to obtain beers list
         viewModel.beersLiveData.observe(viewLifecycleOwner) {
             adapter.addItems(it)
         }
