@@ -8,9 +8,7 @@ import androidx.lifecycle.viewModelScope
 import com.android.lab.domain.usecase.GetBeersUseCase
 import kotlinx.coroutines.launch
 
-class BeersViewModel: ViewModel() {
-
-    private val getBeersUseCase = GetBeersUseCase()
+class BeersViewModel(private val getBeersUseCase: GetBeersUseCase): ViewModel() {
 
     //Live data declaration to send model to the view
     private val _beersLiveData = MutableLiveData<List<BeerItem>>()

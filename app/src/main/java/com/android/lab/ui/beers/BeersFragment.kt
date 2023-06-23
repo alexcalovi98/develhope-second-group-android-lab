@@ -14,13 +14,20 @@ class BeersFragment : Fragment() {
     private lateinit var binding: FragmentSecondBinding
     private lateinit var adapter: BeerAdapter
 
-    private val viewModel: BeersViewModel by viewModels()
+    private val viewModel: BeersViewModel by viewModels {
+        BeersViewModelFactory()
+    }
+    //private lateinit var viewModel: BeersViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentSecondBinding.inflate(inflater)
+
+        //val viewModelFactory = BeersViewModelFactory((activity?.application as BeersApplication))
+        //viewModel = viewModelFactory.create(BeersViewModel::class.java)
+
         return binding.root
     }
 
