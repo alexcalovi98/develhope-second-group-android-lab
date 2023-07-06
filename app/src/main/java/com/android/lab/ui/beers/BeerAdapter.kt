@@ -3,7 +3,10 @@ package com.android.lab.ui.beers
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import coil.api.load
+import coil.ImageLoader
+import coil.disk.DiskCache
+import coil.load
+import coil.memory.MemoryCache
 import com.android.lab.databinding.ItemBinding
 
 class BeerAdapter(private val items: MutableList<BeerItem> = mutableListOf()) : RecyclerView.Adapter<BeerAdapter.ViewHolder>() {
@@ -28,8 +31,22 @@ class BeerAdapter(private val items: MutableList<BeerItem> = mutableListOf()) : 
     }
 
     inner class ViewHolder(private val binding: ItemBinding, private val viewNumber: Int) : RecyclerView.ViewHolder(binding.root) {
+
+        private val imageLoader = ImageLoader.Builder(itemView.context)
+            .memoryCache {
+                MemoryCache.Builder(itemView.context)
+                    .maxSizePercent(0.25)
+                    .build()
+            }.diskCache {
+                DiskCache.Builder()
+                    .directory(itemView.context.cacheDir.resolve("image_cache"))
+                    .maxSizePercent(0.02)
+                    .build()
+            }.respectCacheHeaders(false)
+            .build()
+
         fun bind(item: BeerItem) {
-            binding.icon.load(item.image)
+            binding.icon.load(item.image, imageLoader)
             binding.text.text = item.name
         }
     }
