@@ -4,13 +4,19 @@ import android.content.Context
 import androidx.room.Room
 import com.android.lab.data.local.BeerDao
 import com.android.lab.data.local.BeerDatabase
+import com.android.lab.data.local.BeerPreferences
 import com.android.lab.data.remote.PunkAPI
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 object DataDependencyInjection {
 
+    private const val BEER_PREF = "BEER_PREF"
+
     lateinit var beerRepository: BeerRepository
+    private set
+
+    lateinit var beerPreferences: BeerPreferences
     private set
 
     fun inject(appContext: Context) {
@@ -18,6 +24,9 @@ object DataDependencyInjection {
         beerRepository = BeerRepository(
             createPunkAPI(),
             createBeerDao(appContext)
+        )
+        beerPreferences = BeerPreferences(
+            appContext.getSharedPreferences(BEER_PREF, Context.MODE_PRIVATE)
         )
     }
 
@@ -38,4 +47,6 @@ object DataDependencyInjection {
 
         return db.beerDao()
     }
+
+
 }

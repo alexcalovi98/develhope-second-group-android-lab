@@ -7,11 +7,11 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.android.lab.databinding.FragmentSecondBinding
+import com.android.lab.databinding.FragmentBeersBinding
 
 class BeersFragment : Fragment() {
 
-    private lateinit var binding: FragmentSecondBinding
+    private lateinit var binding: FragmentBeersBinding
     private lateinit var adapter: BeerAdapter
 
     private val viewModel: BeersViewModel by viewModels {
@@ -23,7 +23,7 @@ class BeersFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentSecondBinding.inflate(inflater)
+        binding = FragmentBeersBinding.inflate(inflater)
 
         //val viewModelFactory = BeersViewModelFactory((activity?.application as BeersApplication))
         //viewModel = viewModelFactory.create(BeersViewModel::class.java)

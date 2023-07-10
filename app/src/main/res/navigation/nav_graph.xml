@@ -7,9 +7,9 @@
 
     <fragment
         android:id="@+id/firstFragment"
-        android:name="com.android.lab.ui.FirstFragment"
+        android:name="com.android.lab.ui.home.HomeFragment"
         android:label="fragment_first"
-        tools:layout="@layout/fragment_first" >
+        tools:layout="@layout/fragment_home" >
 
         <action
             android:id="@+id/action_firstFragment_to_secondFragment"
@@ -21,7 +21,7 @@
         android:id="@+id/secondFragment"
         android:name="com.android.lab.ui.beers.BeersFragment"
         android:label="fragment_second"
-        tools:layout="@layout/fragment_second">
+        tools:layout="@layout/fragment_beers">
 
         <action
             android:id="@+id/action_secondFragment_to_thirdFragment"
@@ -33,5 +33,5 @@
         android:id="@+id/thirdFragment"
         android:name="com.android.lab.ui.beers.BeersFragment"
         android:label="fragment_third"
-        tools:layout="@layout/fragment_second" />
+        tools:layout="@layout/fragment_beers" />
 </navigation>

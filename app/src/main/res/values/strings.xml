@@ -9,4 +9,5 @@
     <string name="item_1">This is item one</string>
     <string name="item_2">This is item two</string>
     <string name="item_3">This is item third</string>
+    <string name="beer_favourite_hint">Insert your favourite beer</string>
 </resources>
