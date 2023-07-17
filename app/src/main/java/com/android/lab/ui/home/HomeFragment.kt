@@ -7,19 +7,16 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.android.lab.R
-import com.android.lab.data.DataDependencyInjection
 import com.android.lab.databinding.FragmentHomeBinding
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class HomeFragment : Fragment() {
 
     private lateinit var binding: FragmentHomeBinding
 
-    private val viewModel: HomeViewModel by viewModels {
-        HomeViewModelFactory()
-    }
+    private val viewModel: HomeViewModel by viewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

@@ -5,18 +5,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.android.lab.databinding.FragmentBeersBinding
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class BeersFragment : Fragment() {
 
     private lateinit var binding: FragmentBeersBinding
     private lateinit var adapter: BeerAdapter
 
-    private val viewModel: BeersViewModel by viewModels {
-        BeersViewModelFactory()
-    }
+    private val viewModel: BeersViewModel by viewModel()
     //private lateinit var viewModel: BeersViewModel
 
     override fun onCreateView(
