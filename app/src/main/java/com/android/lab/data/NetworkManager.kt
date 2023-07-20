@@ -31,6 +31,9 @@ object NetworkManager: ConnectivityManager.NetworkCallback() {
 
     override fun onLost(network: Network) {
         super.onLost(network)
-        isConnected = false
+        //if no network active
+        if(connectivityManager.activeNetwork == null) {
+            isConnected = false
+        }
     }
 }
