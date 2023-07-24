@@ -1,5 +1,6 @@
 package com.android.lab.data
 
+import android.util.Log
 import com.android.lab.data.local.BeerDao
 import com.android.lab.data.local.toBeerList
 import com.android.lab.data.remote.PunkAPI
@@ -15,6 +16,7 @@ class BeerRepository(
     suspend fun getBeers(page: Int): List<Beer> {
         return if(NetworkManager.isConnected) {
             val beersRemote = punkAPI.getBeers(page)
+            Log.d("Log", "$beersRemote")
             val beersLocal = beersRemote.toLocalList()
             beerDao.insertAll(beersLocal)
             beersRemote.toBeerList()

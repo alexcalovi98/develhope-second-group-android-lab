@@ -17,6 +17,9 @@ fun BeerRemote.toBeer() = Beer(name, imageUrl)
 
 fun List<BeerRemote>.toBeerList() = map { it.toBeer() }
 
-fun BeerRemote.toLocal() = BeerLocal(name.lowercase(), name, imageUrl)
+fun BeerRemote.toLocal() = BeerLocal(
+    name.lowercase().replace(" ", "-"),
+    name, imageUrl
+)
 
 fun List<BeerRemote>.toLocalList() = map { it.toLocal() }
